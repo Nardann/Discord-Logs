@@ -1,0 +1,11 @@
+name: DiscordLogs
+version: '${project.version}'
+main: nardann.discordlogs.DiscordLogs
+api-version: 1.18
+commands:
+  discordlogs:
+    description: Sends logs to Discord
+    permission: discordlogs.logs
+  discordlogsreload:
+    description: Sends a message to Discord
+    permission: discordlogs.reload
