@@ -11,6 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,8 +20,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static org.bukkit.Bukkit.getLogger;
+import static org.bukkit.Bukkit.getServer;
 
-public class LogCommand implements CommandExecutor {
+public class LogsCommand implements CommandExecutor {
+
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -86,13 +90,13 @@ public class LogCommand implements CommandExecutor {
     public void postMessageToDiscord(String message) {
         message = message != null ? message : "Logs doesn't registered";
         String discordUrl = DiscordLogs.discordUrl;
-
         if (discordUrl == null || discordUrl.isEmpty()) {
             getLogger().warning("Discord URL is not set in the config!");
             return;
         }
 
         String payload = "{\"content\": \"" + message + "\"}";
+
 
         try {
             URL url = new URL(discordUrl);
@@ -107,7 +111,10 @@ public class LogCommand implements CommandExecutor {
             writer.close();
 
             if (conn.getResponseCode() != 204) {
-                getLogger().warning("Failed to send message to Discord: " + conn.getResponseMessage());
+                getLogger().warning("Failed to send message to Discord: " + conn.getResponseMessage() + "\nProbably caused by bad webhook url");
+            }
+            else {
+                getServer().getConsoleSender().sendMessage("Discord logs was send");
             }
 
             conn.disconnect();

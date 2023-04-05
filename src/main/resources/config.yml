@@ -1,11 +1,11 @@
 # Set here your webhook url
-discordUrl: https://discord.com/api/webhooks/**you
+discordUrl: https://discord.com/api/webhooks/your_webhook_link
 
 # If link was send to the command executor
 # true | false
 serverMessage: true
 
-#Optional | add here a message to send in the discord in addition to the link
+# Optional | add here a message to send in the discord in addition to the link
 discordMessage: Hi, look latest logs of my server.
 
 

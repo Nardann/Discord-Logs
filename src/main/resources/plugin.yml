@@ -1,7 +1,7 @@
 name: DiscordLogs
 version: '${project.version}'
 main: nardann.discordlogs.DiscordLogs
-api-version: 1.18
+api-version: '${project.bukkitAPIVersion}'
 commands:
   discordlogs:
     description: Sends logs to Discord
