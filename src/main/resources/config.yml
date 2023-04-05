@@ -5,6 +5,10 @@ discordUrl: https://discord.com/api/webhooks/your_webhook_link
 # true | false
 serverMessage: true
 
+# If logs will be sending when the server stop
+# true | false
+sendLogOnStop: true
+
 # Optional | add here a message to send in the discord in addition to the link
 discordMessage: Hi, look latest logs of my server.
 

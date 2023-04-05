@@ -87,7 +87,7 @@ public class LogsCommand implements CommandExecutor {
         return false;
     }
 
-    public void postMessageToDiscord(String message) {
+    public static void postMessageToDiscord(String message) {
         message = message != null ? message : "Logs doesn't registered";
         String discordUrl = DiscordLogs.discordUrl;
         if (discordUrl == null || discordUrl.isEmpty()) {
